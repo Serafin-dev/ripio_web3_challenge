@@ -8,7 +8,7 @@ const products = require('./products'); // Products module
 
 // initializes the app
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 
