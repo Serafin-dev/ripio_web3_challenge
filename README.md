@@ -25,7 +25,7 @@ Para poder usar la API :
 ### 4- Instalar Postman o Insomnia(opcional)
 
 #### Rutas /api
-| Path | Method | Description |
+| Path | Method | Requerimientos |
 | --- | --- | --- |
 | /api/products | GET | Definir previamente CONTRACT_ADDRESS en archivo .env |
 | /api/create_product/:name | POST | Definir previamente PK(private key) en tu archivo .env y reemplazar :name de la url por el nombre del producto que deseas crear |
