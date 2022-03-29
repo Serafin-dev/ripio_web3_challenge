@@ -23,7 +23,7 @@ Para poder usar la API :
 #### Rutas /api
 | Path | Method | Description |
 | --- | --- | --- |
-| /api/products | GET | --- |
+| /api/products | GET | Definir previamente CONTRACT_ADDRESS en archivo .env |
 | /api/create_product/:name | POST | Definir previamente PK(private key) en tu archivo .env y reemplazar :name de la url por el nombre del producto que deseas crear |
 | /api/delegate_product/:id | POST | Reemplazar el id de la url (:id) por el id del producto y el siguiente JSON por el BODY del request: {"new_owner":"ACA-Va-PUBLIC-KEY-A-LA-QUE-QUIERES-DELEGAR-EL-PRODUCTO", "owner_pk" : "ACA-VA-LA-PRIVATE-KEY-DUEÑA-DE-ALGUN-PRODUCTO"} |
 | /api/accept_product/:id | POST | Reemplazar el id de la url (:id) por el id del producto a aceptar, y pasar el siguiente JSON por el BODY del request: {"pk":"ACA-VA-LA-PRIVATE-KEY-A-LA-QUE-LE-DELEGARON-ALGUN-PRODUCTO"} |
