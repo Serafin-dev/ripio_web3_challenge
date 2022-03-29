@@ -1,6 +1,10 @@
 # ripio_web3_challenge
 
 ## Hola. 
+### Dependencias 
+- DOTENV
+- Express
+- Librería Ether.js
 
 Para poder usar la API :
 ### 1- Instalar Node</h4>
