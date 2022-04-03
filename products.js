@@ -1,22 +1,32 @@
 
 // ALL products
+
+// ALL products
 const getProducts = async (contract) => {
     var products_amount = await contract.size()
 
-    var products = []
+    // save all product promises
+    var all_promises = []
     for (var id = 0; id < parseInt(products_amount); id++){
-        const product = await contract.products(id);
-        
-        products.push({
-            "name": product.name,
-            "id":id,
-            "status":product.status,
-            "owner":product.owner,
-            "newOwner":product.newOwner,
-        });
+        const promise = contract.products(id); // get promise
+        all_promises.push(promise);
     }
-    return products
-}
+    
+    // handle promises 
+    const all_products =  await Promise.all(all_promises);
+    
+    // save products 
+    for (var id = 0; id < parseInt(products_amount); id++){
+        all_products[id] = {
+                "name": all_products[id].name,
+                "id": id,
+                "status": all_products[id].status,
+                "owner": all_products[id].owner,
+                "newOwner": all_products[id].newOwner,
+            };
+    }
+    return all_products;
+};
 
 const createNewProduct = async (contract, wallet, name) => {
     
