@@ -76,22 +76,30 @@ const acceptProduct = async (contract, id, Wallet) => {
 // get products that an account owns
 const getProductsFromOwner = async (contract, owner) => {
 
-    const products_amount = await contract.size()
+    const products_amount = await contract.size();
 
-    var products_from_owner = []
-    for (var id = 0; id < parseInt(products_amount); id ++){
-
-        const product = await contract.products(id);
-        if (owner == product.owner){
-            products_from_owner.push({
-                "name": product.name,
-                "id":id,
-                "status":product.status,
-                "owner":product.owner,
-                "newOwner":product.newOwner,
-            });     
-        }
+    // save all product promises
+    var all_promises = []
+    for (var id = 0; id < parseInt(products_amount); id++){
+        const promise = contract.products(id); // get promise
+        all_promises.push(promise); 
     }
+    // handle promises 
+    const all_products =  await Promise.all(all_promises);
+    
+    // save products 
+    const products_from_owner = [];
+    for (var id = 0; id < parseInt(products_amount); id++){
+        if (owner == all_products[id].owner){
+            products_from_owner.push({
+                "name": all_products[id].name,
+                "id": id,
+                "status": all_products[id].status,
+                "owner": all_products[id].owner,
+                "newOwner": all_products[id].newOwner,
+            });
+        };
+    };
     return products_from_owner
-}
+};
 module.exports = { getProducts, createNewProduct, delegateProduct, acceptProduct, getProductsFromOwner }
