@@ -56,6 +56,4 @@ contract ProductFactory {
     function size() public view returns(uint count) {
         return products.length;
     }
-
-
 }
