@@ -11,10 +11,10 @@ Para poder usar la API :
 ### 1- Clonar el repositorio Master</h4>
 ### 2- Crear un archivo .env en la ruta principal del proyecto e incluir lo siguiente, un elemento por línea y sin espaciado entre caracteres:
 #### .env:
-- PORT="EL-PUERTO-QUE-DESEES" //yo usé "8080"
+- PORT="EL-PUERTO-QUE-DESEES"
 - PROVIDER="https://rpc-mumbai.maticvigil.com/v1/28655f72958aeffeb2f7e6dd638683465b1770c3"
 - PK="ACA-VA-LA-CLAVE-PRIVADA-DE-TU-WALLET-SIN-ESPACIOS"
-- CONTRACT_ADDRESS="0xd9E0b2C0724F3a01AaECe3C44F8023371f845196" // copiar esta misma dirección
+- CONTRACT_ADDRESS="0xd9E0b2C0724F3a01AaECe3C44F8023371f845196" // dir del contrato para el challenge
 
 <h4>3- En la terminal pararse sobre la carpeta API y correr el siguiente comando para iniciar:
 
